@@ -35,8 +35,8 @@ class Client:
 
         # Validate email address using email-validator
         try:
-            valid_email = validate_email(email_address).email
-            self._email_address = valid_email
+            valid_email = validate_email(email_address)
+            self._email_address = valid_email.normalized
         except EmailNotValidError:
             self._email_address = "email@pixell-river.com"
 

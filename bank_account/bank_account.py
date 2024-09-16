@@ -6,89 +6,105 @@ Date: 10/09/2024
 
 class BankAccount:
     def __init__(self, account_number, client_number, balance):
-        """
-        Initialize a new BankAccount instance.
+        """Initialize the bank account with account number, client number, and balance.
 
-        :param account_number: Integer representing the bank account number.
-        :param client_number: Integer representing the client number.
-        :param balance: Float representing the initial balance of the account.
+        Args:
+            account_number (int): The account number.
+            client_number (int): The client number.
+            balance (float or int): The initial balance of the account.
+
+        Raises:
+            ValueError: If account_number or client_number is not an integer, or if balance cannot be converted to float.
         """
         if not isinstance(account_number, int):
             raise ValueError("Account number must be an integer.")
-        self._account_number = account_number
-
         if not isinstance(client_number, int):
             raise ValueError("Client number must be an integer.")
-        self._client_number = client_number
-
+        
         try:
             self._balance = float(balance)
-        except ValueError:
+        except (ValueError, TypeError):
             self._balance = 0.0
+        
+        self._account_number = account_number
+        self._client_number = client_number
 
     @property
     def account_number(self):
-        """Accessor for the account number."""
+        """Return the account number."""
         return self._account_number
 
     @property
     def client_number(self):
-        """Accessor for the client number."""
+        """Return the client number."""
         return self._client_number
 
     @property
     def balance(self):
-        """Accessor for the balance."""
-        return self._balance
+        """Return the balance."""
+        return round(self._balance, 2)  # Round balance to 2 decimal places
 
     def update_balance(self, amount):
-        """
-        Update the balance with the given amount.
+        """Update the balance with the given amount.
 
-        :param amount: Amount to be added to the current balance.
+        Args:
+            amount (float or int): The amount to be added to the balance.
+
+        Notes:
+            The amount can be negative which will decrease the balance.
         """
         try:
             amount = float(amount)
-            self._balance += amount
-        except ValueError:
-            pass  # Do not update balance if amount is invalid
+        except (ValueError, TypeError):
+            return  # If conversion fails, do nothing
+        
+        self._balance += amount
 
     def deposit(self, amount):
-        """
-        Deposit the given amount into the account.
+        """Deposit a specified amount into the account.
 
-        :param amount: Amount to be deposited.
-        :raises ValueError: If the deposit amount is not numeric or non-positive.
+        Args:
+            amount (float or int): The amount to deposit.
+
+        Raises:
+            ValueError: If the deposit amount is not numeric or is non-positive.
         """
-        if not isinstance(amount, (int, float)):
-            raise ValueError(f"Deposit amount: ${amount:.1f} must be numeric.")
+        try:
+            amount = float(amount)
+        except (ValueError, TypeError):
+            raise ValueError(f"Deposit amount must be numeric, but received: {amount}.")
         
         if amount <= 0:
-            raise ValueError(f"Deposit amount: ${amount:.1f} must be positive.")
-
+            raise ValueError(f"Deposit amount: ${amount:.2f} must be positive.")
+        
         self.update_balance(amount)
 
     def withdraw(self, amount):
-        """
-        Withdraw the given amount from the account.
+        """Withdraw a specified amount from the account.
 
-        :param amount: Amount to be withdrawn.
-        :raises ValueError: If the withdrawal amount is not numeric, non-positive, or exceeds the balance.
+        Args:
+            amount (float or int): The amount to withdraw.
+
+        Raises:
+            ValueError: If the withdrawal amount is not numeric, is non-positive, or exceeds the account balance.
         """
-        if not isinstance(amount, (int, float)):
-            raise ValueError(f"Withdraw amount: ${amount:.1f} must be numeric.")
+        try:
+            amount = float(amount)
+        except (ValueError, TypeError):
+            raise ValueError(f"Withdrawal amount must be numeric, but received: {amount}.")
         
         if amount <= 0:
-            raise ValueError(f"Withdrawal amount: ${amount:.1f} must be positive.")
-
+            raise ValueError(f"Withdrawal amount: ${amount:.2f} must be positive.")
+        
         if amount > self._balance:
-            raise ValueError(f"Withdrawal amount: ${amount:.1f} must not exceed the account balance: ${self._balance:.1f}")
-
+            raise ValueError(f"Withdrawal amount: ${amount:.2f} must not exceed the account balance: ${self._balance:.2f}")
+        
         self.update_balance(-amount)
 
     def __str__(self):
-        """
-        Returns a string representation of the bank account.
-        :return: String in the format: Account Number: {account_number} Balance: ${balance}
+        """Return a string representation of the bank account.
+
+        Returns:
+            str: A string showing the account number and the balance.
         """
         return f"Account Number: {self._account_number} Balance: ${self._balance:.2f}\n"
