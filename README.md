@@ -18,3 +18,6 @@ Encapsulation is about keeping the details of how an object works hidden and onl
 2. Controlled Access: Balance can only be changed through methods like deposit() and withdraw().
 3. Data Protection: Encapsulation ensures data integrity by preventing unauthorized access and modifications.
 4. Secure Methods: The Transaction class also hides its internal details and exposes only necessary methods.
+
+## Assignment2: 
+This assignment will extend the BankAccount class created in your previous assignment. The BankAccount class will be used as a superclass from which more specific subclasses will be derived. Each subclass will inherit attributes and methods from the superclass, and will incorporate functionality specific to the subclass. Polymorphism will be realized by having each subclass provide their own unique implementation to a superclass method. Unit testing in this assignment will be limited to verifying the expected polymorphic behaviour.
