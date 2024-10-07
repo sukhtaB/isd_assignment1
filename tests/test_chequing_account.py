@@ -1,3 +1,9 @@
+"""
+Description: Unit tests for the ChequingAccount class.
+Author: Sukhtab Singh Warya
+Date: 06/10/2024
+"""
+
 import unittest
 from bank_account.chequing_account import ChequingAccount
 from datetime import date

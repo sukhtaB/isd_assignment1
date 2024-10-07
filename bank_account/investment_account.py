@@ -1,3 +1,9 @@
+"""
+Description: This file defines the InvestmentAccount class, which represents a investment account with basic operations such as deposit and withdrawal.
+Author: Sukhtab Singh Warya
+Date: 06/10/2024
+
+"""
 from bank_account.bank_account import BankAccount
 from datetime import date, timedelta
 
