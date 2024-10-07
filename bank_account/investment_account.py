@@ -9,7 +9,7 @@ class InvestmentAccount(BankAccount):
 
     def __init__(self, account_number, client_number, balance, date_created, management_fee=2.55):
         """Initialize the Investment Account with specific attributes."""
-        super().__init__(account_number, client_number, balance)
+        super().__init__(account_number, client_number, balance, date_created)
 
         # Validate date_created
         if not isinstance(date_created, (str, date)):
