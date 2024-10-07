@@ -5,13 +5,16 @@ Date: 10/09/2024
 """
 
 class BankAccount:
-    def __init__(self, account_number, client_number, balance):
+    BASE_SERVICE_CHARGE = 0.50  # Constant for the base service charge for all accounts.
+
+    def __init__(self, account_number, client_number, balance, data_created):
         """Initialize the bank account with account number, client number, and balance.
 
         Args:
             account_number (int): The account number.
             client_number (int): The client number.
             balance (float or int): The initial balance of the account.
+            self.date_created = date_created
 
         Raises:
             ValueError: If account_number or client_number is not an integer, or if balance cannot be converted to float.
@@ -108,3 +111,14 @@ class BankAccount:
             str: A string showing the account number and the balance.
         """
         return f"Account Number: {self._account_number} Balance: ${self._balance:.2f}\n"
+
+    def get_service_charges(self):
+        """
+        Calculates and returns the service charges for the account.
+        
+        This method should be implemented in subclasses to reflect specific account types.
+        
+        Returns:
+            float: The calculated service charges for the account.
+        """
+        raise NotImplementedError("This method should be implemented in subclasses.")
