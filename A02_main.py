@@ -2,8 +2,8 @@
 Description: A client program written to verify correctness of 
 the BankAccount sub classes.
 Author: ACE Faculty
-Edited by: {Student Name}
-Date: {Date}
+Edited by: Sukhtab Singh Warya
+Date: 06/10/2024
 """
 
 # 1. Import all BankAccount types using the bank_account package
