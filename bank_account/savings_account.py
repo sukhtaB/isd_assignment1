@@ -27,8 +27,11 @@ class SavingsAccount(BankAccount):
 
         If the minimum_balance cannot be converted to a float, it defaults to 50.00.
         """
-        # Initialize the parent class
+        # Initialize the parent class with the required parameters
         super().__init__(account_number, client_number, balance, date_created)
+
+        # Set the date_created attribute for SavingsAccount
+        self.date_created = date_created
         
         # Validate minimum_balance and set default if necessary
         try:
@@ -56,6 +59,6 @@ class SavingsAccount(BankAccount):
         float: The calculated service charge.
         """
         if self.balance >= self.minimum_balance:
-            return self.BASE_SERVICE_CHARGE
+            return self.BASE_SERVICE_CHARGE  # Ensure BASE_SERVICE_CHARGE is defined in the parent class
         else:
             return self.BASE_SERVICE_CHARGE * self.SERVICE_CHARGE_PREMIUM
