@@ -22,14 +22,3 @@ Encapsulation is about keeping the details of how an object works hidden and onl
 
 ## Assignment2: 
 This assignment will extend the BankAccount class created in your previous assignment. The BankAccount class will be used as a superclass from which more specific subclasses will be derived. Each subclass will inherit attributes and methods from the superclass, and will incorporate functionality specific to the subclass. Polymorphism will be realized by having each subclass provide their own unique implementation to a superclass method. Unit testing in this assignment will be limited to verifying the expected polymorphic behaviour.
-
-## Polymorphism
-In our banking app, we utilize polymorphism to allow different account types to handle service charges in their own specific ways. Each account type—ChequingAccount, SavingsAccount, and InvestmentAccount—derives from a base class called BankAccount.
-
-Key Points:
-- Method Overriding: Each subclass defines its own version of the get_service_charges method. For example:
-  - ChequingAccount calculates charges based on overdraft limits.
-  - SavingsAccount imposes higher fees if the balance is below a certain minimum.
-  - InvestmentAccount may waive fees depending on how long the account has been open.
-
-- Dynamic Behavior: When the get_service_charges method is called on an account, Python dynamically determines which subclass method to use based on the account type. This approach allows for flexible and reusable code, as the correct method is executed automatically.
