@@ -5,6 +5,7 @@ Date: 06/10/2024
 """
 
 from bank_account.bank_account import BankAccount
+from patterns.strategy.service_charge_strategy import MinimumBalanceStrategy  # Ensure this import matches your structure
 
 class SavingsAccount(BankAccount):
     """
@@ -12,8 +13,6 @@ class SavingsAccount(BankAccount):
     and occasional withdrawals, and includes service charge calculations based on balance.
     """
     
-    SERVICE_CHARGE_PREMIUM = 2.00
-
     def __init__(self, account_number, client_number, balance, date_created, minimum_balance):
         """
         Initializes a new SavingsAccount instance.
@@ -39,6 +38,9 @@ class SavingsAccount(BankAccount):
         except (ValueError, TypeError):
             self.minimum_balance = 50.00  # Default value
 
+        # Define the MinimumBalanceStrategy instance
+        self._minimum_balance_strategy = MinimumBalanceStrategy(self.minimum_balance, self.BASE_SERVICE_CHARGE)
+
     def __str__(self):
         """
         Returns a string representation of the SavingsAccount instance, including
@@ -53,12 +55,10 @@ class SavingsAccount(BankAccount):
     def get_service_charges(self):
         """
         Calculates the service charges for the SavingsAccount based on the current balance
-        and minimum balance.
+        and minimum balance using MinimumBalanceStrategy.
 
         Returns:
         float: The calculated service charge.
         """
-        if self.balance >= self.minimum_balance:
-            return self.BASE_SERVICE_CHARGE  # Ensure BASE_SERVICE_CHARGE is defined in the parent class
-        else:
-            return self.BASE_SERVICE_CHARGE * self.SERVICE_CHARGE_PREMIUM
+        # Call the calculate_service_charges method of the MinimumBalanceStrategy instance
+        return self._minimum_balance_strategy.calculate_service_charges(self.balance)

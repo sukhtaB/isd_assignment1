@@ -6,6 +6,7 @@ Date: 06/10/2024
 
 from bank_account.bank_account import BankAccount
 from datetime import date
+from patterns.strategy.service_charge_strategy import OverdraftStrategy  
 
 class ChequingAccount(BankAccount):
     """Class representing a Chequing Account that extends BankAccount."""
@@ -32,6 +33,9 @@ class ChequingAccount(BankAccount):
             raise ValueError("Overdraft rate must be numeric.")
         self._overdraft_rate = float(overdraft_rate)
 
+        # Define the OverdraftStrategy instance
+        self._overdraft_strategy = OverdraftStrategy(self._overdraft_limit, self.BASE_SERVICE_CHARGE)
+
     @property
     def overdraft_limit(self):
         """Return the overdraft limit."""
@@ -51,10 +55,6 @@ class ChequingAccount(BankAccount):
         )
 
     def get_service_charges(self):
-        """Calculate the service charges for the Chequing Account."""
-        if self.balance >= self._overdraft_limit:
-            return self.BASE_SERVICE_CHARGE
-        else:
-            # Calculate how much the balance is overdrawn
-            overdrawn_amount = self._overdraft_limit - self.balance  # Should be a positive amount
-            return self.BASE_SERVICE_CHARGE + (overdrawn_amount * self._overdraft_rate)
+        """Calculate the service charges for the Chequing Account using OverdraftStrategy."""
+        # Call the calculate_service_charges method of the OverdraftStrategy instance
+        return self._overdraft_strategy.calculate_service_charges(self.balance)

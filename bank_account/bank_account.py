@@ -4,17 +4,19 @@ Author: Sukhtab Singh Warya
 Date: 10/09/2024
 """
 
-class BankAccount:
-    BASE_SERVICE_CHARGE = 0.50  # Constant for the base service charge for all accounts.
+from patterns.strategy.service_charge_strategy import ServiceChargeStrategy
 
-    def __init__(self, account_number, client_number, balance, data_created):
-        """Initialize the bank account with account number, client number, and balance.
+
+class BankAccount:
+    def __init__(self, account_number, client_number, balance, date_created, service_charge_strategy: ServiceChargeStrategy):
+        """Initialize the bank account with account number, client number, balance, and service charge strategy.
 
         Args:
             account_number (int): The account number.
             client_number (int): The client number.
             balance (float or int): The initial balance of the account.
-            self.date_created = date_created
+            date_created (str): The date the account was created.
+            service_charge_strategy (ServiceChargeStrategy): Strategy for calculating service charges.
 
         Raises:
             ValueError: If account_number or client_number is not an integer, or if balance cannot be converted to float.
@@ -31,6 +33,8 @@ class BankAccount:
         
         self._account_number = account_number
         self._client_number = client_number
+        self.date_created = date_created
+        self.service_charge_strategy = service_charge_strategy  # Set the service charge strategy
 
     @property
     def account_number(self):
@@ -104,6 +108,10 @@ class BankAccount:
         
         self.update_balance(-amount)
 
+    def calculate_service_charges(self):
+        """Calculate the service charges using the assigned strategy."""
+        return self.service_charge_strategy.calculate_service_charges(self._balance)
+
     def __str__(self):
         """Return a string representation of the bank account.
 
@@ -111,14 +119,3 @@ class BankAccount:
             str: A string showing the account number and the balance.
         """
         return f"Account Number: {self._account_number} Balance: ${self._balance:.2f}\n"
-
-    def get_service_charges(self):
-        """
-        Calculates and returns the service charges for the account.
-        
-        This method should be implemented in subclasses to reflect specific account types.
-        
-        Returns:
-            float: The calculated service charges for the account.
-        """
-        raise NotImplementedError("This method should be implemented in subclasses.")
