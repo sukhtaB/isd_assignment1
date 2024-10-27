@@ -4,50 +4,42 @@ Author: Sukhtab Singh Warya
 Date: 06/10/2024
 
 """
-
 from bank_account.bank_account import BankAccount
+from patterns.strategy.management_fee_strategy import ManagementFeeStrategy
 from datetime import date, timedelta
-from patterns.strategy.service_charge_strategy import ManagementFeeStrategy  
 
 class InvestmentAccount(BankAccount):
-    """Class representing an Investment Account that extends BankAccount."""
+    BASE_SERVICE_CHARGE = 10.00
 
-    BASE_SERVICE_CHARGE = 0.50
-    TEN_YEARS_AGO = date.today() - timedelta(days=10 * 365.25)
-
-    def __init__(self, account_number, client_number, balance, date_created, management_fee=2.55):
-        """Initialize the Investment Account with specific attributes."""
-        super().__init__(account_number, client_number, balance, date_created)
-
-        # Validate date_created
-        if not isinstance(date_created, (str, date)):
-            raise ValueError("Date created must be a string or a date object.")
-
-        self.date_created = date_created  # Store the date created
-
-        # Validate and set management_fee
-        try:
-            self.management_fee = float(management_fee)
-        except (ValueError, TypeError):
-            self.management_fee = 2.55
+    def __init__(self, account_number, client_number, balance, date_created, management_fee, service_charge_strategy):
+        """
+        Initialize an InvestmentAccount instance with account details.
+        Also, initialize the management fee strategy.
+        """
+        if not isinstance(management_fee, (int, float)):
+            raise TypeError("Management fee must be a number")
         
-        # Define the ManagementFeeStrategy instance
-        self._management_fee_strategy = ManagementFeeStrategy(self.management_fee, self.date_created)
+        super().__init__(account_number, client_number, balance, date_created, service_charge_strategy)
+        self.management_fee = management_fee
+        self._management_fee_strategy = ManagementFeeStrategy(annual_fee=self.management_fee, account_creation_date=self.date_created)
 
-    def __str__(self):
-        """Return a string representation of the Investment Account."""
-        base_str = super().__str__()
-        if isinstance(self.date_created, date) and self.date_created > self.TEN_YEARS_AGO:
-            management_fee_str = f"${self.management_fee:.2f}"
+    def get_service_charges(self) -> float:
+        """
+        Calculate the service charges using the ManagementFeeStrategy.
+        If the account is more than 10 years old, return only the base service charge.
+        """
+        if self.date_created <= date.today() - timedelta(days=10 * 365.25):
+            return InvestmentAccount.BASE_SERVICE_CHARGE
+        return InvestmentAccount.BASE_SERVICE_CHARGE + self.management_fee
+
+    def __str__(self) -> str:
+        """
+        Return the string representation of the InvestmentAccount.
+        If the account is more than 10 years old, waive the management fee.
+        """
+        if self.date_created <= date.today() - timedelta(days=10 * 365.25):
+            fee_str = "Waived"
         else:
-            management_fee_str = "Waived"
-        
-        return (
-            f"{base_str}Date Created: {self.date_created} "
-            f"Management Fee: {management_fee_str} Account Type: Investment"
-        )
-
-    def get_service_charges(self):
-        """Calculate the service charges for the Investment Account using ManagementFeeStrategy."""
-        # Call the calculate_service_charges method of the ManagementFeeStrategy instance
-        return self._management_fee_strategy.calculate_service_charges(self.balance)
+            fee_str = f"${self.management_fee:.2f}"
+        return (f"Account Number: {self.account_number} Balance: ${self.balance:.2f}\n"
+                f"Date Created: {self.date_created} Management Fee: {fee_str} Account Type: Investment")

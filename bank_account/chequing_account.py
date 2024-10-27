@@ -15,7 +15,11 @@ class ChequingAccount(BankAccount):
 
     def __init__(self, account_number, client_number, balance, date_created, overdraft_limit=-100, overdraft_rate=0.05):
         """Initialize the Chequing Account with specific attributes."""
-        super().__init__(account_number, client_number, balance, date_created)
+        # Define the OverdraftStrategy instance first
+        overdraft_strategy = OverdraftStrategy(overdraft_limit, self.BASE_SERVICE_CHARGE)
+        
+        # Pass the overdraft_strategy as the service_charge_strategy to the parent class
+        super().__init__(account_number, client_number, balance, date_created, overdraft_strategy)
 
         # Validate date_created
         if not isinstance(date_created, (str, date)):
@@ -32,9 +36,6 @@ class ChequingAccount(BankAccount):
         if not isinstance(overdraft_rate, (int, float)):
             raise ValueError("Overdraft rate must be numeric.")
         self._overdraft_rate = float(overdraft_rate)
-
-        # Define the OverdraftStrategy instance
-        self._overdraft_strategy = OverdraftStrategy(self._overdraft_limit, self.BASE_SERVICE_CHARGE)
 
     @property
     def overdraft_limit(self):
@@ -56,5 +57,5 @@ class ChequingAccount(BankAccount):
 
     def get_service_charges(self):
         """Calculate the service charges for the Chequing Account using OverdraftStrategy."""
-        # Call the calculate_service_charges method of the OverdraftStrategy instance
-        return self._overdraft_strategy.calculate_service_charges(self.balance)
+        # Use the overdraft strategy to calculate the service charges
+        return self.service_charge_strategy.calculate_service_charges(self.balance)

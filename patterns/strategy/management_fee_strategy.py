@@ -11,7 +11,6 @@ class ManagementFeeStrategy(ServiceChargeStrategy):
     """
     Concrete strategy for calculating management fees for investment accounts.
     """
-    # Constant for the date that is 10 years ago
     TEN_YEARS_AGO = date.today() - timedelta(days=10 * 365.25)
 
     def __init__(self, annual_fee: float, account_creation_date: date):
