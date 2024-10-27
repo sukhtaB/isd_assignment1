@@ -4,17 +4,25 @@ Author: Sukhtab Singh Warya
 Date: 10/09/2024
 """
 
+from patterns.observer.observer import Observer
+from utility.file_utils import simulate_send_email
+from datetime import datetime
 from email_validator import validate_email, EmailNotValidError
 
-class Client:
+class Client(Observer):
+    """
+    Client class that acts as an observer and receives notifications about account activities.
+    """
+
     def __init__(self, client_number: int, first_name: str, last_name: str, email_address: str):
         """
-        Initialize a new Client instance.
+        Initializes a new Client instance.
 
-        :param client_number: Integer representing the client's number.
-        :param first_name: String representing the client's first name.
-        :param last_name: String representing the client's last name.
-        :param email_address: String representing the client's email address.
+        Parameters:
+        client_number (int): Integer representing the client's number.
+        first_name (str): String representing the client's first name.
+        last_name (str): String representing the client's last name.
+        email_address (str): String representing the client's email address.
         """
         # Validate and set client_number
         if not isinstance(client_number, int):
@@ -71,6 +79,23 @@ class Client:
         :return: The client's email address as a string.
         """
         return self._email_address
+
+    def update(self, message: str) -> None:
+        """
+        Receives updates regarding significant account activities and simulates sending an email.
+
+        Parameters:
+        message (str): The update message from the Subject.
+        """
+        # Get the current date and time for the email subject
+        current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        subject = f"ALERT: Unusual Activity: {current_time}"
+        
+        # Construct the email body message
+        email_message = f"Notification for {self.client_number}: {self.first_name} {self.last_name}: {message}"
+        
+        # Simulate sending the email
+        simulate_send_email(subject, email_message)
 
     def __str__(self):
         """
