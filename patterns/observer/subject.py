@@ -5,7 +5,7 @@ Author: Sukhtab
 """
 
 from typing import List
-from patterns.observer.observer import Observer  # Ensure this is correct
+from patterns.observer.observer import Observer 
 
 class Subject:
     """
@@ -16,7 +16,7 @@ class Subject:
         """
         Initializes the Subject with an empty list of observers.
         """
-        self._observers: List[Observer] = []  # Correct type hinting
+        self._observers: List[Observer] = []  
 
     def attach(self, observer: Observer) -> None:
         """
@@ -46,4 +46,4 @@ class Subject:
         message (str): The message to be sent to observers.
         """
         for observer in self._observers:
-            observer.update(message)  # Assuming update is correctly defined in Observer
+            observer.update(message)  
