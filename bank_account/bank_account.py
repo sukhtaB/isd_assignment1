@@ -4,10 +4,15 @@ Author: Sukhtab Singh Warya
 Date: 10/09/2024
 """
 
+from abc import ABC
+from patterns.observer.subject import Subject 
 from patterns.strategy.service_charge_strategy import ServiceChargeStrategy
 
 
-class BankAccount:
+class BankAccount(Subject, ABC):
+    LOW_BALANCE_LEVEL = 50.00  
+    LARGE_TRANSACTION_THRESHOLD = 10000.00  
+
     def __init__(self, account_number, client_number, balance, date_created, service_charge_strategy: ServiceChargeStrategy):
         """Initialize the bank account with account number, client number, balance, and service charge strategy.
 
@@ -21,6 +26,7 @@ class BankAccount:
         Raises:
             ValueError: If account_number or client_number is not an integer, or if balance cannot be converted to float.
         """
+        super().__init__()  # Initialize the Subject part of the class
         if not isinstance(account_number, int):
             raise ValueError("Account number must be an integer.")
         if not isinstance(client_number, int):
@@ -67,6 +73,14 @@ class BankAccount:
         
         self._balance += amount
 
+        # Notify on low balance
+        if self._balance < self.LOW_BALANCE_LEVEL:
+            self.notify(f"Low balance warning ${self.balance}: on account {self._account_number}.")
+
+        # Notify on large transaction
+        if abs(amount) > self.LARGE_TRANSACTION_THRESHOLD:
+            self.notify(f"Large transaction ${amount:.2f}: on account {self._account_number}.")
+
     def deposit(self, amount):
         """Deposit a specified amount into the account.
 
@@ -104,7 +118,7 @@ class BankAccount:
             raise ValueError(f"Withdrawal amount: ${amount:.2f} must be positive.")
         
         if amount > self._balance:
-            raise ValueError(f"Withdrawal amount: ${amount:.2f} must not exceed the account balance: ${self._balance:.2f}")
+            raise ValueError(f"Withdrawal amount: ${amount:.2f} must not exceed the account balance: ${self.balance:.2f}")
         
         self.update_balance(-amount)
 
@@ -118,4 +132,4 @@ class BankAccount:
         Returns:
             str: A string showing the account number and the balance.
         """
-        return f"Account Number: {self._account_number} Balance: ${self._balance:.2f}\n"
+        return f"Account Number: {self._account_number} Balance: ${self.balance:.2f}\n"
