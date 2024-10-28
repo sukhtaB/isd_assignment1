@@ -365,3 +365,18 @@ To: kanwarjot@gmail.com
 Subject: ALERT: Unusual Activity: 2024-10-27 21:56:48.350
 Message: Notification for 2: Kanwarjot Singh: Large transaction: $15000.00 on account 6854.
 ---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 22:21:41.557
+Message: Notification for 1: Sukhtab Warya: Low balance warning: $40.00 on account 9876.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 22:21:41.559
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 6854.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 22:21:41.561
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $15000.00 on account 6854.
+---
