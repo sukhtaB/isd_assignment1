@@ -6,6 +6,7 @@ Date: 06/10/2024
 
 from bank_account.bank_account import BankAccount
 from datetime import date
+from patterns.strategy.service_charge_strategy import OverdraftStrategy  
 
 class ChequingAccount(BankAccount):
     """Class representing a Chequing Account that extends BankAccount."""
@@ -14,7 +15,11 @@ class ChequingAccount(BankAccount):
 
     def __init__(self, account_number, client_number, balance, date_created, overdraft_limit=-100, overdraft_rate=0.05):
         """Initialize the Chequing Account with specific attributes."""
-        super().__init__(account_number, client_number, balance, date_created)
+        # Define the OverdraftStrategy instance first
+        overdraft_strategy = OverdraftStrategy(overdraft_limit, self.BASE_SERVICE_CHARGE)
+        
+        # Pass the overdraft_strategy as the service_charge_strategy to the parent class
+        super().__init__(account_number, client_number, balance, date_created, overdraft_strategy)
 
         # Validate date_created
         if not isinstance(date_created, (str, date)):
@@ -51,10 +56,6 @@ class ChequingAccount(BankAccount):
         )
 
     def get_service_charges(self):
-        """Calculate the service charges for the Chequing Account."""
-        if self.balance >= self._overdraft_limit:
-            return self.BASE_SERVICE_CHARGE
-        else:
-            # Calculate how much the balance is overdrawn
-            overdrawn_amount = self._overdraft_limit - self.balance  # Should be a positive amount
-            return self.BASE_SERVICE_CHARGE + (overdrawn_amount * self._overdraft_rate)
+        """Calculate the service charges for the Chequing Account using OverdraftStrategy."""
+        # Use the overdraft strategy to calculate the service charges
+        return self.service_charge_strategy.calculate_service_charges(self.balance)

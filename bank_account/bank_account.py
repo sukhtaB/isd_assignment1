@@ -4,121 +4,58 @@ Author: Sukhtab Singh Warya
 Date: 10/09/2024
 """
 
-class BankAccount:
-    BASE_SERVICE_CHARGE = 0.50  # Constant for the base service charge for all accounts.
+from abc import ABC
+from patterns.observer.subject import Subject
+from patterns.strategy.service_charge_strategy import ServiceChargeStrategy
 
-    def __init__(self, account_number, client_number, balance, data_created):
-        """Initialize the bank account with account number, client number, and balance.
+class BankAccount(Subject, ABC):
+    LOW_BALANCE_LEVEL = 50.00
+    LARGE_TRANSACTION_THRESHOLD = 10000.00
 
-        Args:
-            account_number (int): The account number.
-            client_number (int): The client number.
-            balance (float or int): The initial balance of the account.
-            self.date_created = date_created
-
-        Raises:
-            ValueError: If account_number or client_number is not an integer, or if balance cannot be converted to float.
-        """
-        if not isinstance(account_number, int):
-            raise ValueError("Account number must be an integer.")
-        if not isinstance(client_number, int):
-            raise ValueError("Client number must be an integer.")
-        
-        try:
-            self._balance = float(balance)
-        except (ValueError, TypeError):
-            self._balance = 0.0
-        
+    def __init__(self, account_number: int, client_number: int, balance: float, date_created: str, service_charge_strategy: ServiceChargeStrategy):
+        super().__init__()
+        if not isinstance(account_number, int) or not isinstance(client_number, int):
+            raise ValueError("Account and client numbers must be integers.")
         self._account_number = account_number
         self._client_number = client_number
+        self._balance = balance if isinstance(balance, float) else 0.0
+        self.date_created = date_created
+        self.service_charge_strategy = service_charge_strategy
 
     @property
     def account_number(self):
-        """Return the account number."""
         return self._account_number
 
     @property
     def client_number(self):
-        """Return the client number."""
         return self._client_number
 
     @property
     def balance(self):
-        """Return the balance."""
-        return round(self._balance, 2)  # Round balance to 2 decimal places
+        return round(self._balance, 2)
 
-    def update_balance(self, amount):
-        """Update the balance with the given amount.
-
-        Args:
-            amount (float or int): The amount to be added to the balance.
-
-        Notes:
-            The amount can be negative which will decrease the balance.
-        """
-        try:
-            amount = float(amount)
-        except (ValueError, TypeError):
-            return  # If conversion fails, do nothing
-        
+    def update_balance(self, amount: float):
         self._balance += amount
+        if self._balance < self.LOW_BALANCE_LEVEL:
+            self.notify(f"Low balance warning: ${self.balance:.2f} on account {self._account_number}.")
+        if abs(amount) > self.LARGE_TRANSACTION_THRESHOLD:
+            self.notify(f"Large transaction: ${amount:.2f} on account {self._account_number}.")
 
-    def deposit(self, amount):
-        """Deposit a specified amount into the account.
-
-        Args:
-            amount (float or int): The amount to deposit.
-
-        Raises:
-            ValueError: If the deposit amount is not numeric or is non-positive.
-        """
-        try:
-            amount = float(amount)
-        except (ValueError, TypeError):
-            raise ValueError(f"Deposit amount must be numeric, but received: {amount}.")
-        
+    def deposit(self, amount: float):
         if amount <= 0:
             raise ValueError(f"Deposit amount: ${amount:.2f} must be positive.")
-        
         self.update_balance(amount)
 
-    def withdraw(self, amount):
-        """Withdraw a specified amount from the account.
-
-        Args:
-            amount (float or int): The amount to withdraw.
-
-        Raises:
-            ValueError: If the withdrawal amount is not numeric, is non-positive, or exceeds the account balance.
-        """
-        try:
-            amount = float(amount)
-        except (ValueError, TypeError):
-            raise ValueError(f"Withdrawal amount must be numeric, but received: {amount}.")
-        
+    def withdraw(self, amount: float):
         if amount <= 0:
             raise ValueError(f"Withdrawal amount: ${amount:.2f} must be positive.")
-        
         if amount > self._balance:
-            raise ValueError(f"Withdrawal amount: ${amount:.2f} must not exceed the account balance: ${self._balance:.2f}")
-        
+            raise ValueError(f"Withdrawal amount: ${amount:.2f} must not exceed the account balance: ${self.balance:.2f}")
         self.update_balance(-amount)
 
+    def calculate_service_charges(self):
+        return self.service_charge_strategy.calculate_service_charges(self._balance) if self.service_charge_strategy else 0.0
+
     def __str__(self):
-        """Return a string representation of the bank account.
-
-        Returns:
-            str: A string showing the account number and the balance.
-        """
-        return f"Account Number: {self._account_number} Balance: ${self._balance:.2f}\n"
-
-    def get_service_charges(self):
-        """
-        Calculates and returns the service charges for the account.
-        
-        This method should be implemented in subclasses to reflect specific account types.
-        
-        Returns:
-            float: The calculated service charges for the account.
-        """
-        raise NotImplementedError("This method should be implemented in subclasses.")
+        """Return a string representation of the Bank Account."""
+        return f"Account Number: {self._account_number} Balance: ${self.balance:.2f}\n"
