@@ -10,3 +10,8 @@ from .bank_account import BankAccount
 from .savings_account import SavingsAccount
 
 __all__ = ['BankAccount', 'SavingsAccount']
+
+# bank_account/__init__.py
+from .chequing_account import ChequingAccount
+from .savings_account import SavingsAccount
+

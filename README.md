@@ -33,3 +33,24 @@ Key Points:
   - InvestmentAccount may waive fees depending on how long the account has been open.
 
 - Dynamic Behavior: When the get_service_charges method is called on an account, Python dynamically determines which subclass method to use based on the account type. This approach allows for flexible and reusable code, as the correct method is executed automatically.
+
+
+## Assignment3
+This assignment will address issues associated with the scalability and maintainability of the current service charge calculation functionality. If PiXELL River Financial decided to add several new account types each with their own formula for calculating service charges, several issues could begin to arise such as bloated subclasses, duplication of functionality, and with each potential change to service charge policy, the need to update every subclass. As such, this current polymorphic solution is not scalable. In this assignment the Strategy Pattern will be applied to simplify and add scalability to the service charge functionality. In addition, the Observer Pattern will be introduced. Using the Observer Pattern a client will be notified whenever a large transaction takes place and/or whenever an account balance drops below a minimum value.
+
+## Strategy
+The Strategy Pattern is used to manage different service charges for various account types. By setting up specific service charge strategies like OverdraftStrategy, ManagementFeeStrategy, and MinimumBalanceStrategy, the app can apply different fee calculations based on how the account is used and its rules. This setup makes it easy to add or update service charge strategies without changing the main account classes much.
+
+Here are the classes that use the Strategy Pattern:
+- ServiceChargeStrategy: The base class with the calculate_service_charges method.
+- OverdraftStrategy: For Chequing Accounts to add overdraft fees.
+- ManagementFeeStrategy: For Investment Accounts to calculate fees based on how long the account has been open.
+- MinimumBalanceStrategy: For Savings Accounts to apply fees if the balance is too low.
+
+## Observer
+The Observer Pattern is used to send real-time notifications to clients about important account activities. Clients (Observers) are linked to accounts (Subjects) and get alerts when things like low balances or big transactions happen. This pattern makes it easy to manage notifications, so clients stay informed without changing the account classes.
+
+Here are the classes that use the Observer Pattern:
+- Observer: The base class for things that respond to notifications.
+- Client: A specific observer that listens for changes in their accounts and gets email notifications.
+- Subject: Keeps a list of observers (clients) and tells them about important changes.

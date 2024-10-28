@@ -1,0 +1,367 @@
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+[2024-10-27 17:44:00] Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+[2024-10-27 17:44:00] Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Error withdrawing from ChequingAccount: Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Error withdrawing from SavingsAccount2: Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Error withdrawing $16700.00 from ChequingAccount: Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Error withdrawing from second SavingsAccount: Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Error withdrawing $16700.00 from ChequingAccount: Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Error withdrawing from second SavingsAccount: Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Error withdrawing $16700.00 from ChequingAccount: Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Error withdrawing from second SavingsAccount: Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Error withdrawing $16700.00 from ChequingAccount: Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Error withdrawing from second SavingsAccount: Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Notification: Low balance after withdrawing $560.00 from ChequingAccount.
+Error withdrawing $16700.00 from ChequingAccount: Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Notification: Low balance after withdrawing $530.00 from SavingsAccount.
+Notification: Low balance after withdrawing $2650.00 from the second SavingsAccount.
+Error withdrawing from second SavingsAccount: Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Notification: Low balance after withdrawing $560.00 from ChequingAccount.
+Error withdrawing $16700.00 from ChequingAccount: Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Notification: Low balance after withdrawing $530.00 from SavingsAccount.
+Notification: Low balance after withdrawing $2650.00 from the second SavingsAccount.
+Error withdrawing from second SavingsAccount: Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Error withdrawing $16700.00 from ChequingAccount: Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Error withdrawing from second SavingsAccount: Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+Error withdrawing $16700.00 from ChequingAccount: Withdrawal amount: $16700.00 must not exceed the account balance: $385.00
+Error withdrawing from second SavingsAccount: Withdrawal amount: $450.00 must not exceed the account balance: $330.00
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 18:53:12.297
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 18:53:57.632
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:17:36.159
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:28:58.643
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:29:59.875
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:30:10.928
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:35:03.388
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:35:14.744
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:36:42.533
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:37:03.646
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:39:43.649
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:39:52.528
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:44:22.185
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:53:01.001
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 19:53:01.011
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:06:54.175
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:06:54.178
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:37:30.376
+Message: Notification for 1: Sukhtab Warya: Low balance warning: $10.00 on account 5006.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:37:30.380
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 8667.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:37:30.382
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $12000.00 on account 8667.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:38:38.706
+Message: Notification for 1: Sukhtab Warya: Low balance warning: $10.00 on account 5006.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:38:38.709
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 8667.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:38:38.717
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $12000.00 on account 8667.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:41:20.462
+Message: Notification for 1: Sukhtab Warya: Low balance warning: $10.00 on account 5006.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:41:20.465
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 8667.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:42:46.228
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:42:46.228
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:45:26.012
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:50:38.363
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:53:04.397
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:53:40.048
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:53:40.059
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $15000.00 on account 1001.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:55:42.853
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $15000.00 on account 1002.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:56:47.516
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $15000.00 on account 1002.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:58:20.452
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 20:59:50.541
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:00:22.181
+Message: Notification for 1: Sukhtab Warya: Low balance warning: $45.00 on account 1000.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:00:22.181
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:02:27.701
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:02:27.703
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:03:02.613
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:04:10.432
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:08:52.845
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:10:21.975
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:13:23.726
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:14:20.277
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:17:22.826
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:26:22.434
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 1001.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:26:22.436
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $15000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:36:17.533
+Message: Notification for 1: Sukhtab Warya: Low balance warning: $40.00 on account 1000.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:36:17.535
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:39:42.084
+Message: Notification for 1: Sukhtab Warya: Low balance warning: $40.00 on account 1000.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:39:42.085
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:39:42.086
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:51:56.165
+Message: Notification for 1: Sukhtab Warya: Low balance warning: $40.00 on account 1000.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:51:56.170
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:51:56.171
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:54:51.787
+Message: Notification for 1: Sukhtab Warya: Low balance warning: $40.00 on account 1000.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:54:51.789
+Message: Notification for 1: Sukhtab Warya: Large transaction: $12000.00 on account 1001.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:54:51.790
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $12000.00 on account 1001.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:56:48.346
+Message: Notification for 1: Sukhtab Warya: Low balance warning: $40.00 on account 9876.
+---
+---
+To: sukhtabwarya@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:56:48.348
+Message: Notification for 1: Sukhtab Warya: Large transaction: $15000.00 on account 6854.
+---
+---
+To: kanwarjot@gmail.com
+Subject: ALERT: Unusual Activity: 2024-10-27 21:56:48.350
+Message: Notification for 2: Kanwarjot Singh: Large transaction: $15000.00 on account 6854.
+---
