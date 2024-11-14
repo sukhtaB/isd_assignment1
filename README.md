@@ -54,3 +54,7 @@ Here are the classes that use the Observer Pattern:
 - Observer: The base class for things that respond to notifications.
 - Client: A specific observer that listens for changes in their accounts and gets email notifications.
 - Subject: Keeps a list of observers (clients) and tells them about important changes.
+
+
+## Assignment4
+This assignment will incorporate a Graphical User Interface (GUI) into the PiXELL-River Financial banking system. The end product will include a lookup window from which users can view existing Client and corresponding Bank Account data. The user can then select a Bank Account and perform deposit and withdraw transactions against the selected Bank Account. PySide6 will be used to produce the windows and the design of these windows will be given so that students can focus on implementing the Event Driven Programming Paradigm into their existing set of classes.
