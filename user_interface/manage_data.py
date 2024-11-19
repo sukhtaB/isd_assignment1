@@ -1,3 +1,10 @@
+"""
+Description: Handles reading, organizing, and updating client and bank account data from CSV files with error handling and logging.
+Author: Sukhtab Singh Warya
+Date: 18/11/2024
+"""
+
+
 import os
 import sys
 import csv
