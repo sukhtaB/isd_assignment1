@@ -129,4 +129,4 @@ Detailed documentation, including all classes and methods, is available in the `
 ---
 
 ## License
-This project is licensed under the terms outlined in the `license.txt` file.
+This project is licensed under the terms outlined in the license.txt file.
