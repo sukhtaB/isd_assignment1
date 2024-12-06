@@ -58,3 +58,69 @@ Here are the classes that use the Observer Pattern:
 
 ## Assignment4
 This assignment will incorporate a Graphical User Interface (GUI) into the PiXELL-River Financial banking system. The end product will include a lookup window from which users can view existing Client and corresponding Bank Account data. The user can then select a Bank Account and perform deposit and withdraw transactions against the selected Bank Account. PySide6 will be used to produce the windows and the design of these windows will be given so that students can focus on implementing the Event Driven Programming Paradigm into their existing set of classes.
+
+## Assignment5
+In this assignment we will incorporate a filtering algorithm into the GUI application such that the user may filter the bank account listing based on user-defined criteria. Additionally, the project will be wrapped up by generating html help files for each of the classes based on the docstrings coded throughout the semester. As well, the project will be packaged up into a user-friendly installer such that it may be distributed to users.
+
+
+# PiXELL-River Financial System
+
+## Overview
+The PiXELL-River Financial System is a user-friendly application designed to manage clients, bank accounts, and transactions. It incorporates key features such as client lookup, account details management, and robust filtering functionality for improved usability and efficiency.
+
+
+## Features
+
+- **Client Lookup**: Search and display client information and associated bank accounts based on the client number.
+- **Account Management**: View account details, update balances, and log transactions.
+- **Filtering**: Easily refine account listings based on specific criteria (explained below).
+
+
+## Filtering
+
+### Purpose
+The filtering functionality allows users to refine the list of bank accounts displayed, making it easier to locate specific accounts or information. This feature enhances the user experience by providing a quick and efficient way to search through account data.
+
+### How It Works
+1. **Filter Criteria**:
+   - Users can select a filter criterion (e.g., Account Number, Balance, Date Created) using a dropdown menu.
+2. **Filter Value**:
+   - Enter the desired value in the filter input field.
+3. **Apply Filter**:
+   - Click the **"Apply Filter"** button to display only the rows in the table that match the filter criteria.
+4. **Reset Filter**:
+   - Click the **"Reset"** button to clear the filter and restore the full table.
+
+### Implementation
+The filtering functionality was implemented using PyQt and includes:
+- A dropdown menu (filter_combo_box) for selecting the filter criterion.
+- A text input field (filter_edit) for entering the filter value.
+- A button (filter_button) that toggles between **"Apply Filter"** and **"Reset"** based on the current state.
+- Dynamic table updates to show or hide rows that match the filter criteria.
+
+### Example Usage
+1. Enter a valid **Client Number** and click **Lookup Client**.
+2. View the associated bank accounts in the table.
+3. Select **"Balance"** in the filter dropdown menu.
+4. Enter a value (e.g., 1000) in the filter input field and click **Apply Filter**.
+5. The table will display only the accounts with a balance matching 1000.
+6. Click **Reset** to restore the full table.
+
+
+## Installation
+To install and run the application:
+1. Run the installer PixellAccountManager-installer.exe provided.
+2. Follow the on-screen instructions to complete the installation.
+3. Launch the application via the desktop shortcut or start menu.
+
+
+## Documentation
+Detailed documentation, including all classes and methods, is available in the `docs/` directory or can be viewed online at [Documentation Link].
+
+
+## Contributors
+Sukhtab Singh Warya
+
+
+## License
+This project is licensed under the terms outlined in the license.txt file.
