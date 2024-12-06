@@ -1,9 +1,3 @@
-"""
-Description: Facilitates client data lookup and bank account selection, integrating dynamic client display and event-driven interactions.
-Author: Sukhtab Singh Warya
-Date: 18/11/2024
-"""
-
 from PySide6.QtWidgets import QTableWidgetItem, QMessageBox
 from PySide6.QtCore import Slot, Qt
 from ui_superclasses.lookup_window import LookupWindow
@@ -28,6 +22,14 @@ class ClientLookupWindow(LookupWindow):
         # Connect the account_table cellClicked event to the on_select_account method
         self.account_table.cellClicked.connect(self.on_select_account)
 
+        # Connect the filter_button click event to the on_filter_clicked method
+        self.filter_button.clicked.connect(self.on_filter_clicked)
+
+        # Initialize filter widgets
+        self.filter_combo_box.setEnabled(False)
+        self.filter_edit.setEnabled(False)
+        self.filter_label.setText("Data is Not Currently Filtered")
+
     def on_lookup_client(self):
         """
         Handle the lookup button click event.
@@ -43,7 +45,11 @@ class ClientLookupWindow(LookupWindow):
 
         # Validate that the input is numeric
         if not client_number_text.isdigit():
-            QMessageBox.warning(self, "Invalid Input", "Please enter a valid numeric Client Number.")
+            QMessageBox.warning(
+                self, 
+                "Invalid Input", 
+                "Please enter a valid numeric Client Number. Example: 12345"
+            )
             return
 
         client_number = int(client_number_text)
@@ -87,6 +93,10 @@ class ClientLookupWindow(LookupWindow):
 
         # Adjust column widths to fit content
         self.account_table.resizeColumnsToContents()
+
+        # Enable filtering functionality
+        self.toggle_filter(False)
+        self.filter_button.setEnabled(True)
 
     @Slot(int, int)
     def on_select_account(self, row: int, column: int):
@@ -138,3 +148,52 @@ class ClientLookupWindow(LookupWindow):
 
         # Save the updated data to the CSV file
         update_data(account)
+
+    def on_filter_clicked(self):
+        """
+        Handle the filter button click event.
+        Filter or reset the account_table based on user-defined criteria.
+        """
+        if self.filter_button.text() == "Apply Filter":
+            # Get filter criteria
+            filter_column = self.filter_combo_box.currentIndex()
+            filter_value = self.filter_edit.text().strip().lower()
+
+            # Apply filter to account_table
+            for row in range(self.account_table.rowCount()):
+                item = self.account_table.item(row, filter_column)
+                if filter_value in item.text().lower():
+                    self.account_table.setRowHidden(row, False)
+                else:
+                    self.account_table.setRowHidden(row, True)
+
+            # Indicate that filtering is applied
+            self.toggle_filter(True)
+        else:
+            # Reset filters
+            self.toggle_filter(False)
+
+    def toggle_filter(self, filter_on: bool):
+        """
+        Toggle the filter widgets and update the filter state.
+
+        Args:
+            filter_on (bool): True if filtering is applied, False otherwise.
+        """
+        if filter_on:
+            self.filter_button.setText("Reset")
+            self.filter_combo_box.setEnabled(False)
+            self.filter_edit.setEnabled(False)
+            self.filter_label.setText("Data is Currently Filtered")
+        else:
+            self.filter_button.setText("Apply Filter")
+            self.filter_combo_box.setEnabled(True)
+            self.filter_edit.setEnabled(True)
+            self.filter_edit.setText("")
+            self.filter_combo_box.setCurrentIndex(0)
+
+            # Reset table visibility
+            for row in range(self.account_table.rowCount()):
+                self.account_table.setRowHidden(row, False)
+
+            self.filter_label.setText("Data is Not Currently Filtered")
